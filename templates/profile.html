@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            color: #fff;
+        }
+        p {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 24px;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            background-color: #fff;
+            color: #243b55;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>What would you like to do?</p>
+        <ul>
+            <li><a href="/Ner">NER</a></li><br>
+            <li><a href="/sentiment_analysis">Sentiment Analysis</a></li><br>
+            <li><a href="/abuse_detection">Abuse Detection</a></li><br>
+        </ul>
+    </div>
+</body>
+</html>

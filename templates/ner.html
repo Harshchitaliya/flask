@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Named Entity Recognition (NER)</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 80%;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+        label {
+            display: block;
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 20px;
+        }
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 18px;
+            resize: vertical;
+            height: 150px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        input[type="submit"]:active {
+            background-color: #004181;
+        }
+        /* Style for the response block */
+        .response {
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .response p {
+            color: black;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <form action="/perform_ner" method="post">
+        <h1>Named Entity Recognition (NER)</h1>
+        <label for="text">Enter your text here:</label>
+        <textarea id="text" name="text"  placeholder="Start typing..."></textarea><br>
+        <input type="submit" value="Perform NER">
+        {% if response %}
+            <div class="response">
+                {% for i in response["entities"] %}
+                    <p>{{ i["name"] + " ==> " + i["category"] }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </form>
+</body>
+</html>
